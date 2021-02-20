@@ -15,21 +15,21 @@ env.config();
 
 // router.post("/callback", line.middleware(config), linebot);
 
-const config = {
-  channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
-  channelSecret: process.env.CHANNEL_SECRET,
-};
+// const config = {
+//   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
+//   channelSecret: process.env.CHANNEL_SECRET,
+// };
 
-// create LINE SDK client
-const client = new line.Client(config);
+// // create LINE SDK client
+// const client = new line.Client(config);
 
-// create Express app
-// about Express itself: https://expressjs.com/
-const app = express();
+// // create Express app
+// // about Express itself: https://expressjs.com/
+// const app = express();
 
 // register a webhook handler with middleware
 // about the middleware, please refer to doc
-router.post("/callback", line.middleware(config), (req, res) => {
+router.post("/callback", lineMiddleware, (req, res) => {
   Promise.all(req.body.events.map(handleEvent))
     .then((result) => res.json(result))
     .catch((err) => {
