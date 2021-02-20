@@ -13,6 +13,6 @@ const config = {
 
 const client = new line.Client(config);
 
-router.get("/callback", line.middleware(config), linebot);
+router.post("/callback", line.middleware(config), linebot);
 
 module.exports = router;
