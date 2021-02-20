@@ -8,6 +8,9 @@ exports.lineMiddleware = (req, res, next) => {
     };
     const client = new line.Client(config);
     line.middleware(config);
+
     next();
-  } catch (error) {}
+  } catch (error) {
+    console.log("sad");
+  }
 };

@@ -19,9 +19,8 @@
 
 //   // use reply API
 //   return client.replyMessage(event.replyToken, echo);
-// }
 
-exports.line = (req, res) => {
+exports.linebot = (req, res) => {
   Promise.all(req.body.events.map(handleEvent))
     .then((result) => res.json(result))
     .catch((err) => {
