@@ -52,10 +52,9 @@
 
 "use strict";
 const express = require("express");
-const env = require("dotenv");
+
 const lineRoutes = require("./src/route/line");
 
-env.config();
 const app = express();
 const port = process.env.PORT || 3000;
 app.use(lineRoutes);

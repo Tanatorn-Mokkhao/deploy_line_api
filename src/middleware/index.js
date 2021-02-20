@@ -1,11 +1,7 @@
-const line = require("@line/bot-sdk");
+const env = require("dotenv");
+env.config();
 
-exports.lineMiddleware = (req, res, next) => {
-  const config = {
-    channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
-    channelSecret: process.env.CHANNEL_SECRET,
-  };
-  const client = new line.Client(config);
-  line.middleware(config);
-  next();
+exports.config = {
+  channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
+  channelSecret: process.env.CHANNEL_SECRET,
 };
